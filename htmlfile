@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    /* --- RESET & BASIC SETUP --- */
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* --- TYPOGRAPHY & LAYOUT (Mimicking MSCHF) --- */
+    .nothing-project-wrapper {
+        /* Inverted Colors: White Background, Black Text */
+        background-color: #ffffff; 
+        color: #000000;
+        
+        /* The specific MSCHF Font sizing logic */
+        font-family: 'Courier New', Courier, monospace; /* Monospace to match style */
+        font-size: 4.513888vw;
+        line-height: 3.88888vw;
+        text-transform: uppercase;
+        width: 100vw;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    /* --- THE HEADER BUTTON --- */
+    .header-fixed {
+        position: fixed;
+        top: 0.694444vw;
+        right: 0.694444vw;
+        z-index: 100;
+    }
+
+    .join-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000; /* Black button */
+        color: #ffffff; /* White text */
+        border: none;
+        cursor: pointer;
+        padding: 0.5vw 1.5vw;
+        font-family: inherit;
+        font-size: 2vw; /* Adjusted for readability */
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .join-button:hover {
+        background-color: #f00007; /* MSCHF Red on hover */
+        color: white;
+    }
+
+    /* --- MAIN LIST CONTAINER --- */
+    .main-content {
+        padding-left: 0.694444vw;
+        width: 100vw;
+        box-sizing: border-box;
+        padding-top: 5vw; /* Space for the header */
+    }
+
+    .section-border {
+        /* The vertical line on the left */
+        border-left: 0.208333vw solid #000000; 
+        padding: 0 1.776666vw 0 0.694444vw;
+    }
+
+    /* --- ROW STYLING --- */
+    .row {
+        display: flex;
+        flex-wrap: nowrap;
+        position: relative;
+        margin-bottom: 0.5vw;
+    }
+
+    .row .left {
+        flex-shrink: 0;
+        /* Smaller font for the numbers */
+        font-size: 1.805555vw; 
+        line-height: 1.94444vw;
+        width: 4ch; /* Width for 2-3 digits */
+        display: flex;
+        align-items: flex-end; /* Align number to bottom of text */
+        padding-bottom: 0.4vw;
+    }
+
+    .row .right {
+        flex-grow: 1;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 500px) {
+        .nothing-project-wrapper {
+            font-size: 7.733333vw;
+            line-height: 7.466666vw;
+            letter-spacing: -0.232vw;
+        }
+        
+        .join-button {
+            font-size: 4vw;
+            padding: 1vw 3vw;
+        }
+
+        .row .left {
+            font-size: 4vw;
+            line-height: 3.733333vw;
+        }
+        
+        .section-border {
+            border-left-width: 0.8vw;
+            padding: 0 1.116vw 0 1.6vw;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="nothing-project-wrapper">
+    
+    <header class="header-fixed">
+        <a href="#" class="join-button">JOIN</a>
+    </header>
+
+    <main class="main-content">
+        <section class="section-border">
+
+            <div class="row">
+                <div class="left">
+                    #<br>1
+                </div>
+                <div class="right">
+                    <span>The Nothing Project</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    #<br>2
+                </div>
+                <div class="right">
+                    <span>John Doe</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    #<br>3
+                </div>
+                <div class="right">
+                    <span>Jane Smith</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    #<br>4
+                </div>
+                <div class="right">
+                    <span>Alex Hamilton</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    #<br>5
+                </div>
+                <div class="right">
+                    <span>Sarah Connor</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    #<br>6
+                </div>
+                <div class="right">
+                    <span>Ellen Ripley</span>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="left">
+                    #<br>7
+                </div>
+                <div class="right">
+                    <span>Marty McFly</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
