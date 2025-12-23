@@ -5,137 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Nothing Project</title>
     <style>
-        /* --- RESET & SETUP --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+        /* --- RESET & BASIC SETUP --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body, html {
-            width: 100%; 
+            width: 100%;
             height: 100%;
-            background-color: #ffffff; 
-            color: #000000;
+            background-color: #ffffff; /* White Background */
+            color: #000000; /* Black Text */
+            /* Font: Helvetica Neue */
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: bold; 
+            font-weight: bold;
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY --- */
+        /* --- TYPOGRAPHY SCALING --- */
         body {
-            font-size: 4.5vw; 
+            /* Large scaling text similar to MSCHF */
+            font-size: 4.5vw;
             line-height: 4.0vw;
-            text-transform: uppercase; 
+            text-transform: uppercase;
             letter-spacing: -0.02em;
         }
 
-        /* --- FIXED HEADER (Button + Price) --- */
-        header { 
-            position: fixed; 
-            top: 1vw; 
-            right: 1vw; 
+        /* --- FIXED HEADER (Top Right) --- */
+        header {
+            position: fixed;
+            top: 1vw;
+            right: 1vw;
             z-index: 100;
-            text-align: right; /* Aligns button and text to the right */
+            text-align: right; /* Aligns content to the right */
         }
 
-        .buy-button {
-            display: inline-flex; 
-            justify-content: center; 
+        /* The Button */
+        .join-button {
+            display: inline-flex;
+            justify-content: center;
             align-items: center;
-            background-color: #ffffff; 
+            background-color: #ffffff;
             color: #000000;
-            border: 0.2vw solid #000000; 
+            border: 0.2vw solid #000000;
             padding: 0.5vw 1.5vw;
-            font-family: inherit; 
-            font-size: 2vw; 
+            font-family: inherit;
+            font-size: 2vw;
             text-decoration: none;
-            font-weight: bold; 
-            cursor: pointer; 
+            font-weight: bold;
+            cursor: pointer;
             transition: all 0.2s;
-            margin-bottom: 0.5vw; /* Space between button and price text */
+            margin-bottom: 0.5vw;
         }
 
-        .buy-button:hover { 
-            background-color: #000000; 
-            color: #ffffff; 
+        .join-button:hover {
+            background-color: #000000;
+            color: #ffffff;
         }
 
+        /* The "Current Price" Text */
         .current-price-text {
             display: block;
-            font-size: 1.5vw; /* Smaller than body text */
+            font-size: 1.5vw;
             color: #000000;
         }
 
-        /* --- MAIN LAYOUT --- */
-        main { 
-            padding-left: 1vw; 
-            padding-top: 6vw; 
-            width: 100vw; 
+        /* --- MAIN CONTENT --- */
+        main {
+            padding-left: 1vw;
+            padding-top: 6vw; /* Pushes content down so header doesn't cover it */
+            width: 100vw;
         }
 
         .content-border {
             border-left: 0.3vw solid #000000;
-            padding-right: 2vw; 
-            padding-left: 1vw; 
+            padding-right: 2vw;
+            padding-left: 2.5vw;
             padding-bottom: 5vw;
             min-height: 100vh;
         }
 
-        /* --- LIST ITEMS --- */
-        .row { 
-            display: flex; 
-            flex-wrap: nowrap; 
-            margin-bottom: 1vw; 
-            align-items: baseline; 
+        /* --- FIXED FOOTER (Bottom Left) --- */
+        footer {
+            position: fixed;
+            bottom: 1vw;
+            left: 1vw;
+            z-index: 100;
+            font-size: 1.5vw;
+        }
+
+        /* --- MAIN TITLE STYLE --- */
+        .project-title {
+            margin-bottom: 3vw;
+            display: block;
+            /* Optional: Make the title slightly larger */
+            font-size: 5vw; 
+            line-height: 4.5vw;
+        }
+
+        /* --- LIST ROWS --- */
+        .row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-bottom: 1vw;
+            align-items: baseline;
         }
 
         .row .left {
-            flex-shrink: 0; 
-            font-size: 2vw; 
+            flex-shrink: 0;
+            font-size: 2vw;
             line-height: 2.2vw;
-            width: 12ch; 
-            display: flex; 
-            align-items: flex-end; 
+            width: 12ch; /* Width for the price column */
+            display: flex;
+            align-items: flex-end;
             color: #000000;
         }
 
-        .row .right { 
-            flex-grow: 1; 
-            white-space: nowrap; 
+        .row .right {
+            flex-grow: 1;
+            white-space: nowrap;
         }
 
-        /* --- MOBILE STYLES --- */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 500px) {
-            body { font-size: 7vw; line-height: 7vw; }
+            body {
+                font-size: 7vw;
+                line-height: 7vw;
+            }
             
-            .buy-button { font-size: 4vw; padding: 1.5vw 3vw; border-width: 0.5vw; }
-            .current-price-text { font-size: 3vw; }
+            .join-button {
+                font-size: 4vw;
+                padding: 1.5vw 3vw;
+                border-width: 0.5vw;
+            }
+
+            .current-price-text {
+                font-size: 3vw;
+            }
+
+            footer {
+                font-size: 3vw;
+                bottom: 2vw;
+                left: 2vw;
+            }
+
+            .project-title {
+                font-size: 8vw;
+                line-height: 8vw;
+                margin-bottom: 6vw;
+            }
+
+            .row .left {
+                font-size: 3.5vw;
+                line-height: 3.5vw;
+                width: 12ch;
+            }
             
-            .row .left { font-size: 3.5vw; line-height: 3.5vw; width: 12ch; }
-            .content-border { border-left-width: 0.8vw; padding-left: 2vw; }
+            .content-border {
+                border-left-width: 0.8vw;
+                padding-left: 2vw;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- FIXED TOP RIGHT AREA -->
     <header>
-        <a href="https://buy.stripe.com/YOUR_LINK_HERE" class="buy-button">JOIN</a>
+        <!-- 1. The Button -->
+        <a href="https://buy.stripe.com/YOUR_STRIPE_LINK_HERE" class="join-button">JOIN</a>
         
+        <!-- 2. The Current Price Line -->
         <div class="current-price-text">CURRENT PRICE $3</div>
     </header>
 
+    <!-- MAIN SCROLLING AREA -->
     <main>
         <section class="content-border">
 
+            <!-- THE MAIN TITLE -->
+            <div class="project-title">
+                The Nothing Project
+            </div>
+
+            <!-- 
+               PAST SALES LIST 
+               Add new rows here as people buy.
+            -->
+            
+            <div class="row">
+                <div class="left">$4</div>
+                <div class="right">Liam Jenkins</div>
+            </div>
+
+            <div class="row">
+                <div class="left">$3</div>
+                <div class="right">Emily Oconnel</div>
+            </div>
+
             <div class="row">
                 <div class="left">$2</div>
-                <div class="right">John Doe</div>
+                <div class="right">Jack Ruscito</div>
             </div>
 
             <div class="row">
                 <div class="left">$1</div>
-                <div class="right">Jane Smith</div>
+                <div class="right">Fredo</div>
             </div>
 
         </section>
     </main>
+
+    <footer>
+         Join the club by paying for absolutely nothing. Price increases with every purchase
+    </footer>
 
 </body>
 </html>
