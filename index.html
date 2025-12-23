@@ -5,166 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Nothing Project</title>
     <style>
-        /* --- RESET & BASIC SETUP --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* --- RESET & SETUP --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body, html {
-            width: 100%;
+            width: 100%; 
             height: 100%;
-            background-color: #ffffff; /* White Background */
-            color: #000000; /* Black Text */
-            font-family: 'Courier New', Courier, monospace; /* Monospace font */
+            background-color: #ffffff; 
+            color: #000000;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold; 
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY (Responsive like MSCHF) --- */
+        /* --- TYPOGRAPHY --- */
         body {
-            font-size: 4.513888vw;
-            line-height: 3.88888vw;
-            text-transform: uppercase;
+            font-size: 4.5vw; 
+            line-height: 4.0vw;
+            text-transform: uppercase; 
+            letter-spacing: -0.02em;
         }
 
-        /* --- HEADER BUTTON --- */
-        header {
-            position: fixed;
-            top: 0.7vw;
-            right: 0.7vw;
+        /* --- FIXED HEADER (Button + Price) --- */
+        header { 
+            position: fixed; 
+            top: 1vw; 
+            right: 1vw; 
             z-index: 100;
+            text-align: right; /* Aligns button and text to the right */
         }
 
-        .join-button {
-            display: inline-flex;
-            justify-content: center;
+        .buy-button {
+            display: inline-flex; 
+            justify-content: center; 
             align-items: center;
-            background-color: #000000;
-            color: #ffffff;
-            border: none;
+            background-color: #ffffff; 
+            color: #000000;
+            border: 0.2vw solid #000000; 
             padding: 0.5vw 1.5vw;
-            font-family: inherit;
+            font-family: inherit; 
             font-size: 2vw; 
             text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: all 0.2s;
+            margin-bottom: 0.5vw; /* Space between button and price text */
         }
 
-        .join-button:hover {
-            background-color: #f00007; /* MSCHF Red */
-            color: white;
+        .buy-button:hover { 
+            background-color: #000000; 
+            color: #ffffff; 
+        }
+
+        .current-price-text {
+            display: block;
+            font-size: 1.5vw; /* Smaller than body text */
+            color: #000000;
         }
 
         /* --- MAIN LAYOUT --- */
-        main {
-            padding-left: 0.7vw;
-            padding-top: 5vw; /* Space for top header */
-            width: 100vw;
+        main { 
+            padding-left: 1vw; 
+            padding-top: 6vw; 
+            width: 100vw; 
         }
 
         .content-border {
-            border-left: 0.2vw solid #000000;
-            padding-right: 1.8vw;
-            padding-left: 0.7vw;
+            border-left: 0.3vw solid #000000;
+            padding-right: 2vw; 
+            padding-left: 1vw; 
             padding-bottom: 5vw;
             min-height: 100vh;
         }
 
         /* --- LIST ITEMS --- */
-        .row {
-            display: flex;
-            flex-wrap: nowrap;
-            margin-bottom: 0.5vw;
-            align-items: baseline;
+        .row { 
+            display: flex; 
+            flex-wrap: nowrap; 
+            margin-bottom: 1vw; 
+            align-items: baseline; 
         }
 
         .row .left {
-            flex-shrink: 0;
-            font-size: 1.8vw;
-            line-height: 1.9vw;
-            width: 5ch; /* Width for the number column */
-            display: flex;
-            align-items: flex-end;
+            flex-shrink: 0; 
+            font-size: 2vw; 
+            line-height: 2.2vw;
+            width: 12ch; 
+            display: flex; 
+            align-items: flex-end; 
+            color: #000000;
         }
 
-        .row .right {
-            flex-grow: 1;
-            white-space: nowrap;
+        .row .right { 
+            flex-grow: 1; 
+            white-space: nowrap; 
         }
 
         /* --- MOBILE STYLES --- */
         @media (max-width: 500px) {
-            body {
-                font-size: 7.7vw;
-                line-height: 7.5vw;
-                letter-spacing: -0.05vw;
-            }
+            body { font-size: 7vw; line-height: 7vw; }
             
-            .join-button {
-                font-size: 4vw;
-                padding: 1.5vw 3vw;
-            }
-
-            .row .left {
-                font-size: 4vw;
-                line-height: 3.7vw;
-            }
+            .buy-button { font-size: 4vw; padding: 1.5vw 3vw; border-width: 0.5vw; }
+            .current-price-text { font-size: 3vw; }
             
-            .content-border {
-                border-left-width: 0.8vw;
-                padding-left: 1.6vw;
-            }
+            .row .left { font-size: 3.5vw; line-height: 3.5vw; width: 12ch; }
+            .content-border { border-left-width: 0.8vw; padding-left: 2vw; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="join-button">JOIN</a>
+        <a href="https://buy.stripe.com/YOUR_LINK_HERE" class="buy-button">JOIN</a>
+        
+        <div class="current-price-text">CURRENT PRICE $3</div>
     </header>
 
     <main>
         <section class="content-border">
 
             <div class="row">
-                <div class="left">#<br>1</div>
-                <div class="right">The Nothing Project</div>
-            </div>
-
-            <div class="row">
-                <div class="left">#<br>2</div>
+                <div class="left">$2</div>
                 <div class="right">John Doe</div>
             </div>
 
             <div class="row">
-                <div class="left">#<br>3</div>
+                <div class="left">$1</div>
                 <div class="right">Jane Smith</div>
-            </div>
-
-            <div class="row">
-                <div class="left">#<br>4</div>
-                <div class="right">Alex Hamilton</div>
-            </div>
-
-            <div class="row">
-                <div class="left">#<br>5</div>
-                <div class="right">Sarah Connor</div>
-            </div>
-
-            <div class="row">
-                <div class="left">#<br>6</div>
-                <div class="right">Ellen Ripley</div>
-            </div>
-
-             <div class="row">
-                <div class="left">#<br>7</div>
-                <div class="right">Marty McFly</div>
-            </div>
-
-             <div class="row">
-                <div class="left">#<br>8</div>
-                <div class="right">Ferris Bueller</div>
             </div>
 
         </section>
