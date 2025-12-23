@@ -86,13 +86,12 @@
             min-height: 100vh;
         }
 
-        /* --- FIXED FOOTER (Bottom Left) --- */
+        /* --- FOOTER --- */
         footer {
-            position: fixed;
-            bottom: 1vw;
-            left: 1vw;
-            z-index: 100;
+            /* Now inside the border container, just needs spacing */
+            padding-top: 4vw; 
             font-size: 1.5vw;
+            width: 100%;
         }
 
         /* --- MAIN TITLE STYLE --- */
@@ -151,8 +150,7 @@
 
             footer {
                 font-size: 3vw;
-                bottom: 2vw;
-                left: 2vw;
+                padding-top: 8vw; /* More space on mobile */
             }
 
             .project-title {
@@ -177,14 +175,12 @@
 <body>
 
     <!-- FIXED TOP RIGHT AREA -->
-    
-    
     <header>
         <!-- 1. The Button -->
-        <a href="https://buy.stripe.com/5kQcN53Wn34L7lm5KbdIA00" class="join-button">JOIN</a>
+        <a href="https://buy.stripe.com/YOUR_STRIPE_LINK_HERE" class="join-button">JOIN</a>
         
         <!-- 2. The Current Price Line -->
-        <div class="current-price-text">CURRENT PRICE $12</div>
+        <div class="current-price-text">CURRENT PRICE $11</div>
     </header>
 
     <!-- MAIN SCROLLING AREA -->
@@ -198,7 +194,7 @@
 
             <!-- 
                PAST SALES LIST 
-               New rows added as people buy.
+               Add new rows here as people buy.
             -->
             
             <div class="row">
@@ -256,12 +252,13 @@
                 <div class="right">Hannah Brooks</div>
             </div>
 
+            <!-- FOOTER moved inside the border section -->
+            <footer>
+                 Join the club by paying for absolutely nothing. Price increases with every purchase. How much would you pay for nothing? Updates on the hour
+            </footer>
+
         </section>
     </main>
-
-    <footer>
-         Join the club by paying for absolutely nothing. Price increases with every purchase. How much would you pay for nothing? Updates on the hour
-    </footer>
 
 </body>
 </html>
